@@ -14,7 +14,7 @@ var irregulars = [
   ["bid",	"bid",	"bid",	"offrir"],
   ["bite",	"bit",	"bitten",	"mordre"],
   ["bleed",	"bled",	"bled",	"saigner"],
-  ["blow 	blew",	"blown",	"souffler"],
+  ["blow", 	"blew",	"blown",	"souffler"],
   ["break",	"broke",	"broken",	"casser"],
   ["breed",	"bred",	"bred",	"élever"],
   ["bring",	"brought",	"brought",	"apporter"],

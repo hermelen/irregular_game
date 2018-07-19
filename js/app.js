@@ -42,7 +42,6 @@ $(document).ready(function(){
       $(this).html("Recommencer");
       btn = "retry";
     } else {
-      console.log(btn);
       randomVerbIndex = getRandomInt(irregulars.length);
       $(".title").html(`
         <h1>${irregulars[randomVerbIndex][3]}</h1>
