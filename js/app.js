@@ -2,74 +2,64 @@ $(document).ready(function(){
   var score = 0
   var randomVerbIndex = getRandomInt(irregulars.length);
 
-  $(".content").append(`
-    <div class="col-12">
+  $(".title").append(`
       <h1>${irregulars[randomVerbIndex][3]}</h1>
-    </div>
-    <div class="col-3">
-      <label for="">Infinitif</label>
-      <input type="text" class="" name="Infinitif" value="${irregulars[randomVerbIndex][0]}">
-    </div>
-    <div class="col-3">
-      <label for="Prétérit">Prétérit</label>
-      <input type="text" class="preterit" name="Prétérit" placeholder="Prétérit" value="">
-    </div>
-    <div class="col-3">
-      <label for="">Participe Passé</label>
-      <input type="text" class="p-passe" name="Participe Passé" placeholder="Participe Passé" value="">
-    </div>
-
-    <div class="col-12">
-      <p>Score</p>
-      <p class="score">${score}</p>
-    </div>
   `)
+  $(".infinitif").append(`
+    <input type="text" class="border" name="Infinitif" value="${irregulars[randomVerbIndex][0]}">
+  `)
+  $(".preterit").append(`
+    <input type="text" class="border preterit" name="Prétérit" placeholder="Prétérit" value="">
+  `)
+  $(".p-passe").append(`
+    <input type="text" class="border p-passe" name="Participe Passé" placeholder="Participe Passé" value="">
+  `)
+  var btn = "check";
+
   $("#check").click(function(){
-    if ($("input.preterit").val() == irregulars[randomVerbIndex][1]) {
-      console.log("super");
-      score += 1;
+    if (btn == "check") {
+      if ($("input.preterit").val() == irregulars[randomVerbIndex][1]) {
+        $("input.preterit").addClass("border border-success");
+        score += 1;
 
+      } else {
+        $("input.preterit").addClass("border border-danger");
+      }
+
+      if ($("input.p-passe").val() == irregulars[randomVerbIndex][2]) {
+        $("input.p-passe").addClass("border-success");
+        score += 1;
+
+      } else {
+        $("input.p-passe").addClass("border-danger");
+      }
+
+      $("input.preterit").val(irregulars[randomVerbIndex][1]);
+      $("input.p-passe").val(irregulars[randomVerbIndex][2]);
+
+
+      $(".score").html(score);
+      $(this).html("Recommencer");
+      btn = "retry";
     } else {
-      console.log("perdu");
-    }
-
-    if ($("input.p-passe").val() == irregulars[randomVerbIndex][2]) {
-      console.log("super");
-      score += 1;
-
-    } else {
-      console.log("perdu");
-    }
-    $(".score").html(score);
-
-    randomVerbIndex = getRandomInt(irregulars.length);
-
-    $(".content").html(`
-      <div class="col-12">
+      console.log(btn);
+      randomVerbIndex = getRandomInt(irregulars.length);
+      $(".title").html(`
         <h1>${irregulars[randomVerbIndex][3]}</h1>
-      </div>
-      <div class="col-3">
-        <label for="">Infinitif</label>
-        <input type="text" class="" name="Infinitif" value="${irregulars[randomVerbIndex][0]}">
-      </div>
-      <div class="col-3">
-        <label for="Prétérit">Prétérit</label>
-        <input type="text" class="preterit" name="Prétérit" placeholder="Prétérit" value="">
-      </div>
-      <div class="col-3">
-        <label for="">Participe Passé</label>
-        <input type="text" class="p-passe" name="Participe Passé" placeholder="Participe Passé" value="">
-      </div>
-      <div class="col-12">
-        <p>Score</p>
-        <p class="score">${score}</p>
-      </div>
-    `)
-
-  })
-
-
-
+      `)
+      $(".infinitif").html(`
+        <input type="text" class="border" name="Infinitif" value="${irregulars[randomVerbIndex][0]}">
+      `)
+      $(".preterit").html(`
+        <input type="text" class="border preterit" name="Prétérit" placeholder="Prétérit" value="">
+      `)
+      $(".p-passe").html(`
+        <input type="text" class="border p-passe" name="Participe Passé" placeholder="Participe Passé" value="">
+      `)
+      $(this).html("Valider");
+      btn = "check";
+    }
+  });
 
 
   function getRandomInt(max) {
