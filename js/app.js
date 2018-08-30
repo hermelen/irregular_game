@@ -20,6 +20,8 @@ $(document).ready(function(){
 
   $("#start").click(function(e){
     e.preventDefault();
+    $(".container-fluid").addClass("started");
+    $(".container-fluid").removeClass("stopped");
     if (game == "stopped") {
       $(this).html('Arreter');
       $(this).removeClass('btn-primary').addClass('btn-danger');
@@ -33,7 +35,7 @@ $(document).ready(function(){
         <button type="button" id="check" class="btn btn-primary" name="button">Valider</button>
       `)
       $("div.score").append(`
-        <p class="text-center">Score: <span class="score">${score}</span></p>
+        <p class="text-center">rate on /20: <span class="score">${score}</span></p>
       `)
 
       $(".over-footer").addClass("d-none");
@@ -67,6 +69,8 @@ $(document).ready(function(){
       });
 
     } else {
+      $(".container-fluid").removeClass("started");
+      $(".container-fluid").addClass("stopped");
       $(this).html('Démarrer');
       $(this).removeClass('btn-danger').removeClass('btn-success').addClass('btn-primary');
       game = "stopped";
