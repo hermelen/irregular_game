@@ -35,7 +35,7 @@ $(document).ready(function(){
         <button type="button" id="check" class="btn btn-primary" name="button">Valider</button>
       `)
       $("div.score").append(`
-        <p class="text-center">rate on /20: <span class="score">${score}</span></p>
+        <p class="text-center">rate <span class="score">${score}</span> / ${howManyVerbs * 2}</p>
       `)
 
       $(".over-footer").addClass("d-none");
